@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/VipCharge.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="/css/VipCharge.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div id="top" th:insert="top_black.html"/>
+<center>
+    <h1 style="padding-top: 50px;">喵呜电影VIP会员中心 </h1>
+    <div class="user-info">
+        <div style="height: 50px;">
+        <!--已经登录状态-->
+        <ul th:if="${session.usersLogin}">
+            <li>
+                <img th:src="@{/icon/myaccount.svg}" alt="VIP" width="30" height="24" >
+            </li>
+            <li>
+                <a><span th:text="'用户 '+${session.usersLogin.getEmail()}" /></a>
+            </li>
+            <li th:if="${session.usersLogin.jifen == 1}">
+                <a>
+                    <img th:src="@{/icon/Vip1.svg}" alt="VIP" width="30" height="24" class="d-inline-block align-text-top">
+                </a>
+            </li>
+            <li th:unless="${session.usersLogin.jifen == 1}">
+                <a>您还不是喵呜电影VIP</a>
+            </li>
+            <li>
+                <a href="/index/toLogin"><button style="border-radius: 10px;border: none; ">切换账号</button></a>
+            </li>
+        </ul>
+        <!--未登录状态-->
+        <ul th:unless="${session.usersLogin}">
+            <li>
+                <a href="/index/toLogin">
+                    <img th:src="@{/icon/login.svg}" alt="VIP" width="30" height="24" class="d-inline-block align-text-top">
+                </a>
+            </li>
+            <li>
+                <a>请登录您的账号</a>
+            </li>
+            <li>
+                <a href="/index/toLogin"><button style="border-radius: 10px;border: none; ">立即登录</button></a>
+            </li>
+        </ul>
+        </div>
+        <div style="height: 300px; border: 1px solid black;">
+            <form action="/recharge" method="post">
+                    <label for="vip-option" style="margin-left: 10px;">选择充值套餐:</label>
+                    <select id="vip-option" name="vip-option" style="border: 1px solid black; border-radius: 5px;">
+                        <option value="vip">腾讯视频VIP</option>
+                        <option value="svip">超级影视SVIP</option>
+                        <option value="sportsVip">腾讯体育VIP</option>
+                        <option value="sportsSvip">腾讯体育超级VIP</option>
+                    </select>
+                    <input type="submit" value="充值" style="margin-left: 10px;">
+            </form>
+        </div>
+    </div>
+</center>
+</body>
+</html>

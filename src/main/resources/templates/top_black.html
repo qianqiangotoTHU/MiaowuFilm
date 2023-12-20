@@ -21,14 +21,34 @@
           <a class="nav-link" href="/actorlist/">演员</a>
         </li>
       </ul>
+
+      <ul class="navbar-nav" >
+          <li th:if="${session.usersLogin}"class="nav-item">
+              <a class="nav-link"><span th:text="'欢迎用户 '+${session.usersLogin.getEmail()}" /></a>
+          </li>
+          <li th:unless="${session.usersLogin}"class="nav-item">
+              <a class="nav-link">看电影，就上喵呜电影网！</a>
+          </li>
+      </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="#">登录</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">注册</a>
+            <a class="nav-link" href="/index/toVipCharge">
+                <img th:src="@{/icon/VIP.svg}" alt="VIP" width="30" height="24" class="d-inline-block align-text-top">
+            </a>
         </li>
       </ul>
+      <ul class="navbar-nav" >
+          <li th:if="${session.usersLogin}"class="nav-item">
+            <a  class="nav-link" href="/index/logOut" >退出</a>
+          </li>
+          <li th:unless="${session.usersLogin}"class="nav-item">
+              <a  class="nav-link" href="/index/toLogin" >登录</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="/index/toRegister">注册</a>
+          </li>
+      </ul>
+
     </div>
   </div>
 </nav>
