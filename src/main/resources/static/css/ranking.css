@@ -1,0 +1,55 @@
+.movie-card {
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    box-shadow: 5px 5px 15px lightgrey;
+    transition: 500ms;
+}
+
+.movie-pic {
+    width: 100%;
+    height: 250px;
+}
+
+.sort-banner {
+    height: 30px;
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 16px;
+    margin-top: 32px;
+}
+
+.sort-item {
+    position: relative;
+    width: 80px;
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+.on {
+    color: #00a1d6;
+}
+
+ul {
+    list-style: none;
+}
+
+.movieName {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profile, .actorlist-title {
+    color: gray;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.actorlist {
+    margin-top: 10px;
+    margin-bottom: 16px;
+}

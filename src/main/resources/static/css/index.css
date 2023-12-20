@@ -1,0 +1,103 @@
+.card {
+    border: none;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 500px;
+    cursor: pointer;
+}
+
+.filter-wrapper {
+    float: right;
+    width: 260px;
+    padding-top: 20px;
+}
+
+.filter-title {
+    height: 44px;
+    line-height: 1;
+    font-size: 18px;
+    color: #222;
+}
+
+.filter-block {
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-name {
+    float: left;
+    width: 52px;
+    height: 30px;
+    color: #99a2aa;
+    font-size: 12px;
+    line-height: 1;
+}
+
+ul {
+    list-style: none;
+}
+
+.filter-item-wrapper {
+    width: 208px;
+    float: right;
+    min-height: 30px;
+    overflow: hidden;
+    padding-left: 0;
+}
+
+.filter-item {
+    width: auto;
+    padding-right: 20px;
+    display: inline-block;
+    vertical-align: top;
+    text-align: left;
+    height: 30px;
+    font-size: 12px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.on {
+    color: #00a1d6;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 241px;
+}
+
+.sort-banner {
+    height: 30px;
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 32px;
+}
+
+.sort-item {
+    position: relative;
+    width: 80px;
+    margin-right: 20px;
+    float: left;
+    cursor: pointer;
+}
+
+i.down {
+    bottom: 5px;
+    border: 5px dashed rgba(0, 0, 0, 0);
+    border-top: 5px solid #ddd;
+    border-bottom: none;
+    display: block;
+    position: absolute;
+    left: 60px;
+    margin: 0 2px;
+    width: 0;
+    height: 0;
+}
+
+i.active {
+    border-top: 5px solid #00a1d6;
+}

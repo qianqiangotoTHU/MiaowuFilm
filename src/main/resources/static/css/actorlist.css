@@ -1,0 +1,34 @@
+.actor-card {
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.actor-card:hover {
+    box-shadow: 5px 5px 15px lightgrey;
+    transition: 500ms;
+}
+
+.actor-pic {
+    border-radius: 5px;
+    width: 100%;
+    height: 250px;
+}
+
+.actorName {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.EnglishName {
+    font-size: 12px;
+}
+
+.actorprofile {
+    margin-top: 25px;
+}
+
+.profile {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 12px;
+}

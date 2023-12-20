@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MiaoWu Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link href="/css/ranking.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/ranking.js"></script>
+</head>
+<body>
+  <div th:insert="top_black.html"/>
+
+  <div class="container">
+      <ul class="sort-banner">
+          <li class="sort-item on">
+              <span>全部排行</span>
+          </li>
+          <li class="sort-item">
+              <span>本周排行</span>
+          </li>
+          <li class="sort-item">
+              <span>本月排行</span>
+          </li>
+          <li class="sort-item">
+              <span>好评排行</span>
+          </li>
+      </ul>
+      <div class="card movie-card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-2">
+                      <img class="movie-pic" th:src="@{/picture/pic4.jpg}">
+                  </div>
+                  <div class="col-10">
+                      <div class="movieName">速度与激情</div>
+                      <div class="actorlist">
+                          <div class="actorlist-title">主演</div>
+                          <div class="actorlist-content">
+                              <span> 范·迪塞尔 / 米歇尔·罗德里格兹 / 杰森·莫玛 / 布丽·拉尔森 / 查理兹·塞隆</span>
+                          </div>
+                      </div>
+                      <div class="movieprofile">
+                          <div class="profile">简介</div>
+                          <div class="profile-text">在完成了无数任务，克服了各种不可能的困难之后，唐老大（范·迪塞尔 Vin Diesel 饰）和他的家族以智慧、勇气和速度过五关斩六将，打败了一路上的所有敌人。如今，他们面对的是一名危险至极的对手：这个从过往阴影中浮出水面的具有致命威胁的人物，誓要报偿血海深仇，决心破坏这个家族，彻底摧毁唐老大所热爱的一切及其至亲至爱之人。</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="card movie-card">
+          <div class="card-body">
+              <div class="row">
+                  <div class="col-2">
+                      <img class="movie-pic" th:src="@{/picture/pic4.jpg}">
+                  </div>
+                  <div class="col-10">
+                      <div class="movieName">速度与激情</div>
+                      <div class="actorlist">
+                          <div class="actorlist-title">主演</div>
+                          <div class="actorlist-content">
+                              <span> 范·迪塞尔 / 米歇尔·罗德里格兹 / 杰森·莫玛 / 布丽·拉尔森 / 查理兹·塞隆</span>
+                          </div>
+                      </div>
+                      <div class="movieprofile">
+                          <div class="profile">简介</div>
+                          <div class="profile-text">在完成了无数任务，克服了各种不可能的困难之后，唐老大（范·迪塞尔 Vin Diesel 饰）和他的家族以智慧、勇气和速度过五关斩六将，打败了一路上的所有敌人。如今，他们面对的是一名危险至极的对手：这个从过往阴影中浮出水面的具有致命威胁的人物，誓要报偿血海深仇，决心破坏这个家族，彻底摧毁唐老大所热爱的一切及其至亲至爱之人。</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-center">
+              <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                  </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                  <a class="page-link" href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                  </a>
+              </li>
+          </ul>
+      </nav>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
