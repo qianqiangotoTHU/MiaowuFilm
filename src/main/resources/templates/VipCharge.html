@@ -49,18 +49,27 @@
             </li>
         </ul>
         </div>
-        <div style="height: 300px; border: 1px solid black;">
-            <form action="/recharge" method="post">
-                    <label for="vip-option" style="margin-left: 10px;">选择充值套餐:</label>
-                    <select id="vip-option" name="vip-option" style="border: 1px solid black; border-radius: 5px;">
-                        <option value="vip">腾讯视频VIP</option>
-                        <option value="svip">超级影视SVIP</option>
-                        <option value="sportsVip">腾讯体育VIP</option>
-                        <option value="sportsSvip">腾讯体育超级VIP</option>
-                    </select>
-                    <input type="submit" value="充值" style="margin-left: 10px;">
-            </form>
+        <div class="charge">
+            <div class="coption" tabindex="1">
+                <a>年卡</a>
+                <h2>￥124</h2>
+            </div>
+            <div class="coption" tabindex="2">
+                <a>季卡</a>
+                <h2>￥39</h2>
+            </div>
+            <div class="coption" tabindex="3">
+                <a>月卡</a>
+                <h2>￥15</h2>
+            </div>
         </div>
+        <p style="color: darkgrey;">到期前自动续费，可随时取消</p>
+        <form action="/recharge" method="post">
+            <div style="height: 150px; display: flex;align-items: center;">
+                <img src="/picture/scnuwx.jpg" width="150px" height="150px" style="padding-left: 50px;box-sizing: unset" />
+                <input type="submit" value="立即充值" class="chargebutton">
+            </div>
+        </form>
     </div>
 </center>
 </body>

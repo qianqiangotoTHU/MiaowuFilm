@@ -23,3 +23,46 @@ ul {
 li {
     margin: 0 4px;
 }
+.charge{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 500px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+
+}
+.coption{
+    width: 150px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.coption:focus{
+    border-style: solid;
+    border-width: 2px;
+    border-color: coral;
+    background-color: peachpuff;
+}
+.chargebutton {
+    font-size: 20px;
+    color: white;
+    width: 180px;
+    height: 50px;
+    background-color: coral;
+    border-radius: 10px;
+    border: none;
+    margin-left: 40px;
+}
+.chargebutton:focus{
+    color: black;
+    background-color: darkorange;
+    border-width: 2px;
+}
