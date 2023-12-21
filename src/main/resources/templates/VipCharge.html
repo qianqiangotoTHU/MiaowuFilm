@@ -11,7 +11,7 @@
 <body>
 <div id="top" th:insert="top_black.html"/>
 <center>
-    <h1 style="padding-top: 50px;">喵呜电影VIP会员中心 </h1>
+    <h1 style="padding-top: 30px;">喵呜电影VIP会员中心 </h1>
     <div class="user-info">
         <div style="height: 50px;">
         <!--已经登录状态-->
@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li th:unless="${session.usersLogin.jifen == 1}">
-                <a>您还不是喵呜电影VIP</a>
+                <a style="color: darkgray">您还不是喵呜电影VIP</a>
             </li>
             <li>
                 <a href="/index/toLogin"><button style="border-radius: 10px;border: none; ">切换账号</button></a>

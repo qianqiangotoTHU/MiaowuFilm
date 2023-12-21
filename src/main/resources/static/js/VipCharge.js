@@ -3,10 +3,10 @@ $(function() {
         $.get("/index/doVipCharge", {
     }, function(result) {
             if(result=="novip"){
-                alert(result);
-                users.jifen=1; // 将users.jifen()的值设置为1
+                alert("充值成功！");
+                window.location.href="/index/toVipCharge";
             }
-            else if(result=="isvip")
+            else if(result=="您已是vip,请勿重复充值！")
             {
                 alert(result);
             }

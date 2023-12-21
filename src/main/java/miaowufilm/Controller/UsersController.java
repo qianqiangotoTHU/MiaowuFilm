@@ -1,12 +1,14 @@
 package miaowufilm.Controller;
 
-import jakarta.servlet.http.HttpSession;
 import miaowufilm.entity.Users;
 import miaowufilm.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class UsersController {
@@ -61,7 +63,6 @@ public class UsersController {
         return "VipCharge";
     }
 
-
     @RequestMapping("/index/doVipCharge")
     @ResponseBody
     public String checkLoginStatus(HttpSession session) {
@@ -69,9 +70,12 @@ public class UsersController {
         if (users == null) {
             return "未登录";
         } else if(users!=null && users.getJifen()==0) {
+            usersService.setMyjifen(users.getEmail());
+            users.setJifen(1);
+            session.setAttribute("usersLogin",users);
             return "novip";
         }
-        else return "is_vip";
+            else return "您已是vip,请勿重复充值！";
     }
 
 }

@@ -42,16 +42,15 @@ public class UsersService extends ServiceImpl<UsersMapper, Users> {
         }
     }
 
-//    public int getMyJifen(String email, String password) {
-//        // 进入数据库查询
-//        Users users=usersMapper.selectById(email);
-//        if(users != null) {
-//            System.out.println(users); // 打印users对象
-//            return users.getJifen();
-//        }else {
-//            return -1;
-//        }
-//    }
-
+    public void setMyjifen(String email){
+        // 进入数据库查询
+        Users users=usersMapper.selectById(email);
+        System.out.println(email);
+        if(users != null && users.getJifen()==0) {
+            // 打印users对象
+            users.setJifen(1);
+            usersMapper.updateById(users);
+        }
+    }
 
 }
