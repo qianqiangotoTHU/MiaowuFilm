@@ -34,7 +34,7 @@
 
   <div class="container">
       <ul class="sort-banner">
-          <li class="sort-item on">
+          <li class="sort-item on" >
               <span>播放数量</span>
               <i class="down active"></i>
           </li>
@@ -51,56 +51,56 @@
           <div class="card-body">
               <div class="row">
                   <div class="col-9">
-                      <div class="row row-cols-1 row-cols-md-5 g-4">
+                      <div class="row row-cols-1 row-cols-md-5 g-4" >
                           <!-- 下面是一个电影块 这里可以写th:each-->
-                          <div class="col">
-                              <div class="card">
-                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                      电影名称
+                          <div class="col" th:each="film:${films}">
+                              <div class="card" >
+                                  <a th:href="''+${film.filmId}"/>
+                                  <img th:src="@{'/film/'+${film.file_haibao}}" class="card-img-top" alt="..."></a>
+                                  <div class="card-body" th:text="${film.filmname}">
                                   </div>
                               </div>
                           </div>
-                          <div class="col">
-                              <div class="card">
-                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                      电影名称
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col">
-                              <div class="card">
-                                  <img th:src="@{/picture/pic2.jpg}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                      电影名称
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col">
-                              <div class="card">
-                                  <img th:src="@{/picture/pic3.jpg}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                      电影名称
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col">
-                              <div class="card">
-                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                      电影名称
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="col">
-                              <div class="card">
-                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">
-                                  <div class="card-body">
-                                      电影名称
-                                  </div>
-                              </div>
-                          </div>
+<!--                          <div class="col">-->
+<!--                              <div class="card">-->
+<!--                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">-->
+<!--                                  <div class="card-body">-->
+<!--                                      电影名称-->
+<!--                                  </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                          <div class="col">-->
+<!--                              <div class="card">-->
+<!--                                  <img th:src="@{/picture/pic2.jpg}" class="card-img-top" alt="...">-->
+<!--                                  <div class="card-body">-->
+<!--                                      电影名称-->
+<!--                                  </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                          <div class="col">-->
+<!--                              <div class="card">-->
+<!--                                  <img th:src="@{/picture/pic3.jpg}" class="card-img-top" alt="...">-->
+<!--                                  <div class="card-body">-->
+<!--                                      电影名称-->
+<!--                                  </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                          <div class="col">-->
+<!--                              <div class="card">-->
+<!--                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">-->
+<!--                                  <div class="card-body">-->
+<!--                                      电影名称-->
+<!--                                  </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
+<!--                          <div class="col">-->
+<!--                              <div class="card">-->
+<!--                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">-->
+<!--                                  <div class="card-body">-->
+<!--                                      电影名称-->
+<!--                                  </div>-->
+<!--                              </div>-->
+<!--                          </div>-->
                       </div>
 
 

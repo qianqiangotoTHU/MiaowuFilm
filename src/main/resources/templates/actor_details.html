@@ -16,30 +16,30 @@
 <div class="container">
   <div class="card" style="border: none;">
     <div class="card-body">
-      <div class="actorName">韩素希 So-hee Han</div>
+      <div class="actorName" th:text="${actor.actorname}"></div>
       <div class="row">
         <div class="col-3">
-          <img class="actor-img" th:src="@{/picture/actor.jpg}">
+          <img class="actor-img" th:src="@{'/actor/'+${actor.actor_pic}}">
         </div>
         <div class="col-9">
           <div><span class="title">性别：</span>
-            <span class="content">女</span>
+            <span class="content"th:text="${actor.sex}"></span>
           </div>
 
           <div><span class="title">星座：</span>
-            <span class="content">天蝎座</span>
+            <span class="content"th:text="${actor.star}"></span>
           </div>
 
           <div><span class="title">出生日期：</span>
-            <span class="content">1994年11月18日</span>
+            <span class="content"th:text="${actor.birthdate}"></span>
           </div>
 
           <div><span class="title">出生地：</span>
-            <span class="content">韩国，蔚山，广域</span>
+            <span class="content"th:text="${actor.place}"></span>
           </div>
 
           <div><span class="title">简介：</span>
-            <span class="content">韩素希，韩国女演员、模特。2016年作为广告模特开始了演艺生涯。2017年获得亚洲模特节K-模特大奖广告部门最佳模特奖，同年出演奇幻爱情剧《再次相遇的世界》正式以演员身份出道。2020年凭借复仇剧《夫妻的世界》走红 。2021年担任Netflix动作剧《我的名字》女主角。</span>
+            <span class="content"th:text="${actor.introduce}"></span>
           </div>
         </div>
       </div>

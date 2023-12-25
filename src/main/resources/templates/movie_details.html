@@ -19,21 +19,21 @@
     <div class="card-body">
       <div class="finalscore position-absolute">
         <div class="title">评分</div>
-        <div class="score">9.0</div>
+        <div class="score" th:text="${film.score}"></div>
       </div>
 
-      <div class="MovieName">速度与激情</div>
+      <div class="MovieName"th:text="${film.filmname}"></div>
       <div class="row">
         <div class="col-3">
-          <img class="actor-img" th:src="@{/picture/pic4.jpg}">
+          <img class="actor-img" th:src="@{'/film/'+${film.file_haibao}}">
         </div>
         <div class="col-9">
-          <div><span class="title">导演：</span>
-            <span class="content">温子仁</span>
+          <div><span class="title">导演</span>
+            <span class="content" th:text="${film.director}">温子仁</span>
           </div>
 
           <div><span class="title">编剧：</span>
-            <span class="content">克里斯·摩根 / 盖瑞·斯科特·汤普森</span>
+            <span class="content" th:text="${film.bianju}"></span>
           </div>
 
           <div><span class="title">主演：</span>
@@ -45,26 +45,23 @@
           </div>
 
           <div><span class="title">类型：</span>
-            <span class="content">动作</span>
+            <span class="content"th:text="${film.type}">动作</span>
           </div>
 
           <div><span class="title">地区：</span>
-            <span class="content">美国</span>
+            <span class="content"th:text="${film.region}"></span>
           </div>
 
-          <div><span class="title">上映时间：</span>
-            <span class="content">2015-04-12</span>
+          <div><span class="title" >上映时间：</span>
+            <span class="content"th:text="${film.release_time}">2015-04-12</span>
           </div>
 
-          <div><span class="title">片长：</span>
-            <span class="content">137分钟</span>
+          <div><span class="title" >片长：</span>
+            <span class="content" th:text="${film.length}"></span>
           </div>
 
           <div><span class="title">简介：</span>
-            <span class="content">经历了紧张刺激的伦敦大战，多米尼克·托雷托（范·迪塞尔 Vin Diesel
-                饰）和他的伙伴们重新回归平静的生活，但是江湖的恩恩怨怨却决不允许他们轻易抽身而去。棘手的死对头欧文·肖瘫在医院，不得动弹，他的哥哥戴克·肖（杰森·斯坦森 Jason Stantham
-                饰）则发誓要为弟弟复仇。戴克曾是英国特种部队的王牌杀手，不仅身怀绝技，而且心狠手辣。他干掉了远在东京的韩，还几乎把探长卢克·霍布斯（道恩·强森 Dwayne Johnson
-                饰）送到另一个世界，甚至多米尼克那世外桃源般的家也被对方炸毁。</span>
+            <span class="content" th:text="${film.introduce}"></span>
           </div>
 
           <div>
