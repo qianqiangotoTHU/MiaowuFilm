@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台</title>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/login_ajax.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <style>
+        .tech{
+            width: auto;
+            text-align:center;
+        }
+        .sale{
+            width: 450px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-width: 3px;
+            text-align:center;
+        }
+        .sale_cell{
+            text-align:center;
+            height:60px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="top" th:insert="top_black.html"/>
+
+    <!--POI生成并打印报表-->
+    <div class="tech" style="margin-top: 100px">
+        <h2>后台销售榜单</h2>
+        <table class="sale" >
+            <tr>
+                <td class="sale_cell">电影ID</td>
+                <td class="sale_cell">电影名称</td>
+                <td class="sale_cell">电影播放量</td>
+                <td class="sale_cell">
+                    <a href="/ExcelDownload" >下载</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!--扇形图-->
+    <div id="main" style="width: 600px; height: 400px;"></div>
+    <!--柱状图-->
+    <div id="main2" style="height: 40em"></div>
+</body>
+
+<!--扇形图：播放量/电影名称-->
+<script type="text/javascript">
+    //初始化echarts
+    function init(myChart){
+        let option = {
+            title:{
+                text:'ECharts 数据统计'
+            },
+            series:[{
+                name:'访问量',
+                type:'pie',
+                radius:'50%',
+                data:[
+                    {value:0,name:'无'},
+                ]
+            }]
+        };
+        myChart.setOption(option);
+    }
+    //从数据库读取数据赋值给echarts
+    function show(myChart){
+        $.ajax({
+            contentType : "application/json",
+            type : "GET",
+            url : "/Echarts",
+            dataType : "json",
+            success : function(data) {
+                //创建一个数组，
+                let Chart=[];
+                for(let i=0;i<data.length;i++){
+                    let obj={};
+                    obj.value=data[i].play_number;
+                    obj.name=data[i].filmname;
+                    Chart[i]=obj;
+                }
+
+                myChart.setOption({
+                    title:{
+                        text:'电影销售榜单——扇形图'
+                    },
+                    tooltip:{},
+                    series:[{
+                        name:'播放量',
+                        type:'pie',
+                        // radius:'10%',
+                        data:Chart,
+                    }]
+                });
+            }
+        });
+    }
+    //初始化echarts实例
+    let myChart = echarts.init(document.getElementById("main"));
+    init(myChart);
+    show(myChart);
+</script>
+
+<!--柱状图：电影名称/播放量-->
+<script type="text/javascript">
+    var myChart2 = echarts.init(document.getElementById('main2'));
+    $.ajax({
+        contentType: "application/json",
+        type: "GET",
+        url: "/Echarts",
+        dataType: "json",
+        success: function (data) {
+            let x = [];
+            let y = [];
+            for (let i = 0; i < data.length; i++) {
+                //x[i]获取json的电影名，y[i]获取json的播放量
+                x[i] = data[i].filename;
+                y[i] = data[i].play_number;
+            }
+            myChart2.setOption({
+                tooltip: {},
+                label: {
+                    show: true,
+                    position:'top',
+                },
+                legend: {},
+                xAxis: {
+                    data: x
+                },
+                yAxis: {},
+                series: [
+                    {
+                        colorBy:'data',
+                        name: '电影销售榜单——柱状图',
+                        type: 'bar',
+                        data: y
+
+                    }
+                ]
+            });
+        },
+        error: function () {
+        }
+    })
+</script>
+
+</html>

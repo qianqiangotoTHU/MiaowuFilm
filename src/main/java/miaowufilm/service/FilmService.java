@@ -12,7 +12,8 @@ import java.util.List;
 @Service
 public class FilmService extends ServiceImpl<FilmMapper, Film> {
     @Autowired
-   private FilmMapper filmMapper;
+    private FilmMapper filmMapper;
+
     public List<Film> findAll(){
         return filmMapper.selectList(null);
     }
