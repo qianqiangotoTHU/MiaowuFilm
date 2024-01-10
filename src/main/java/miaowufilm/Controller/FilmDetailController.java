@@ -1,6 +1,5 @@
 package miaowufilm.Controller;
 
-import jakarta.servlet.http.HttpSession;
 import miaowufilm.entity.Actor;
 import miaowufilm.entity.Comment;
 import miaowufilm.entity.Film;
@@ -19,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 //import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -64,14 +64,17 @@ public class FilmDetailController {
 
     @GetMapping("/film/comment")
     @ResponseBody
-    public String filmcomment(String comment,String filmname,String username,Model model){
+    public String filmcomment(String comment,String filmname,Model model,HttpSession session){
+        Users users = (Users) session.getAttribute("usersLogin");
+        if(users==null){
+            return "请登录！";
+        }
         if(comment==null||comment==""){
             return "请输入评论！";
         }
-        if(false){
-            return "请登录！";
-        }
-        List<Comment> comments = filmService.addComment(comment,filmname,username);
+        String mname = users.getMname();
+        System.out.println(mname);
+        List<Comment> comments = filmService.addComment(comment,filmname,mname);
         model.addAttribute("comments",comments);
         return "true";
     }

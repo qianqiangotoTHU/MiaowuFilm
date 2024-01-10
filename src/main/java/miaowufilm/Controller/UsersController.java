@@ -1,6 +1,5 @@
 package miaowufilm.Controller;
 
-import jakarta.servlet.http.HttpSession;
 import miaowufilm.entity.Users;
 import miaowufilm.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -54,8 +53,8 @@ public class UsersController {
 
     @RequestMapping("/index/doRegister")
     @ResponseBody
-    public String doRegister(String email,String passw1){
-        String flag =  usersService.register(email,passw1);
+    public String doRegister(String email,String passw1,String mname){
+        String flag =  usersService.register(email,passw1,mname);
         return flag;
     }
 
