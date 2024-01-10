@@ -6,7 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import jakarta.servlet.http.HttpSession;
+
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -14,7 +15,7 @@ public class UsersController {
 //    @RequestMapping("/index")
 //    public String index() {
 //        return "index";
-//    }
+//
 
     @Autowired
     private UsersService usersService;
