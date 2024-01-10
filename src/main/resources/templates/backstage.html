@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>后台</title>
+    <title>喵呜后台</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.0/dist/echarts.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -26,7 +26,7 @@
             height:60px;
             width: 100px;
         }
-        h2{
+        h3{
             margin-bottom: 50px;
         }
         .main
@@ -37,13 +37,14 @@
 
     <!--POI生成并打印报表-->
     <div class="tech">
-        <h2>后台销售榜单</h2>
+        <h3>后台销售榜单——报表</h3>
         <table class="sale" >
             <tr>
                 <td class="sale_cell">电影ID</td>
                 <td class="sale_cell">电影名称</td>
                 <td class="sale_cell">电影播放量</td>
-                <td class="sale_cell">
+                <td class="sale_cell">电影评分</td>
+                <td class="sale_cell" style="color: #3377aa">
                     <a href="/ExcelDownload" >下载报表</a>
                 </td>
             </tr>
@@ -96,13 +97,12 @@
 
                 myChart.setOption({
                     title:{
-                        text:'电影销售榜单——扇形图'
+                        text:'后台销售榜单——扇形图'
                     },
                     tooltip:{},
                     series:[{
                         name:'播放量',
                         type:'pie',
-                        // radius:'10%',
                         data:Chart,
                     }]
                 });
@@ -128,7 +128,7 @@
             let y = [];
             for (let i = 0; i < data.length; i++) {
                 //x[i]获取json的电影名，y[i]获取json的播放量
-                x[i] = data[i].filename;
+                x[i] = data[i].filmname;
                 y[i] = data[i].play_number;
             }
             myChart2.setOption({
@@ -145,7 +145,7 @@
                 series: [
                     {
                         colorBy:'data',
-                        name: '电影销售榜单——柱状图',
+                        name: '后台销售榜单——柱状图',
                         type: 'bar',
                         data: y
 

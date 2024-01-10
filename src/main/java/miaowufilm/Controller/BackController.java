@@ -26,7 +26,7 @@ public class BackController {
     @RequestMapping("/ExcelDownload")
     public void excelDownload(HttpServletResponse response) throws IOException {
         //表头数据
-        String[] header={"filmId","filmname","play_number"};
+        String[] header={"filmId","filmname","play_number","score"};
         HSSFWorkbook workbook=new HSSFWorkbook();
         //生成一个表格“销售榜单”
         HSSFSheet sheet=workbook.createSheet("销售榜单");
@@ -53,7 +53,8 @@ public class BackController {
             HSSFCell cell = null;
             String[] names = {Math.toIntExact(film.getFilm_id()) + "",
                     film.getFilmname()+ "",
-                    film.getPlay_number()+ "",};
+                    film.getPlay_number()+ "",
+                    film.getScore()+"",};
             for (int k = 0; k < names.length; k++) {
                 cell = row.createCell(k);
                 //拿到属性值
