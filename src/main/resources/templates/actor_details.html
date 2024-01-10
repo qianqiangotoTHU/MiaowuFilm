@@ -16,30 +16,30 @@
 <div class="container">
   <div class="card" style="border: none;">
     <div class="card-body">
-      <div class="actorName" th:text="${actor.actorname}"></div>
+      <div class="actorName" th:text="${actor?.actorname}"></div>
       <div class="row">
         <div class="col-3">
-          <img class="actor-img" th:src="@{'/actor/'+${actor.actor_pic}}">
+          <img class="actor-img" th:src="@{'/actor/'+${actor?.actor_pic}}">
         </div>
         <div class="col-9">
           <div><span class="title">性别：</span>
-            <span class="content"th:text="${actor.sex}"></span>
+            <span class="content"th:text="${actor?.sex}"></span>
           </div>
 
           <div><span class="title">星座：</span>
-            <span class="content"th:text="${actor.star}"></span>
+            <span class="content"th:text="${actor?.star}"></span>
           </div>
 
           <div><span class="title">出生日期：</span>
-            <span class="content"th:text="${actor.birthdate}"></span>
+            <span class="content"th:text="${actor?.birthdate}"></span>
           </div>
 
           <div><span class="title">出生地：</span>
-            <span class="content"th:text="${actor.place}"></span>
+            <span class="content"th:text="${actor?.place}"></span>
           </div>
 
           <div><span class="title">简介：</span>
-            <span class="content"th:text="${actor.introduce}"></span>
+            <span class="content"th:text="${actor?.introduce}"></span>
           </div>
         </div>
       </div>
@@ -48,10 +48,11 @@
         <div class="movies-title">参演电影</div>
         <div class="movies-content">
           <div class="row row-cols-1 row-cols-md-5 g-4">
-            <div class="col">
+            <div class="col" th:each="film:${filmList}">
               <div class="card movie-card" >
-                <img th:src="@{/picture/pic4.jpg}" alt="" class="card-img-top">
-                <div class="card-body">电影名称</div>
+                <a th:href="'/index/'+${film.film_id}">
+                <img th:src="@{'/film/'+${film?.file_haibao}}" alt="" class="card-img-top">
+                <div class="card-body" th:text="${film?.filmname}">电影名称</div></a>
               </div>
             </div>
           </div>

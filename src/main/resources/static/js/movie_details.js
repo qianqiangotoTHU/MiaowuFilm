@@ -18,3 +18,32 @@ function play(video,vip){
         return false;
 }
 
+function score(){
+    var rating = document.querySelector('input[name="inlineRadioOptions"]:checked').value;
+    var movieName = document.querySelector('.MovieName').textContent;
+    $.get('/film/score',{
+        'score':rating,
+        'filmname':movieName
+    },function (result){
+        if (result=="true"){
+            alert("评分成功！");
+            window.location.reload();
+        }
+    })
+}
+
+function comment(){
+    const input = document.querySelector('#exampleFormControlTextarea1').value;
+    var movieName = document.querySelector('.MovieName').textContent;
+    var username = "qiqi";
+    $.get('/film/comment',{
+        'comment':input,
+        'filmname':movieName,
+        'username':username
+    },function (result){
+        if(result=="true"){
+            alert("评论成功！");
+            window.location.reload();
+        }else alert(result);
+    })
+}
