@@ -11,10 +11,10 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class UsersController {
-    @RequestMapping("/index")
-    public String index() {
-        return "index";
-    }
+//    @RequestMapping("/index")
+//    public String index() {
+//        return "index";
+//    }
 
     @Autowired
     private UsersService usersService;

@@ -10,7 +10,7 @@ import lombok.Data;
 public class Actor {
     @TableId
 
-    private int actorid;
+    private int actor_id;
     private String actorname;
     private String actorname_english;
     private String sex;

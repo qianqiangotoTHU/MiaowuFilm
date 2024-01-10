@@ -10,14 +10,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/actorlist")
 public class ActorDetailController {
     @Autowired
     private ActorService actorService;
-    @GetMapping("/{id}")
+    @GetMapping("/actorlist{id}")
     public String actorDetail(@PathVariable Integer id, Model model){
         Actor actor=actorService.findById(id);
         model.addAttribute("actor",actor);
+
+        return "actor_details";
+    }
+
+    @GetMapping("/actorlist/{actorname}")
+    public String GetActorByName(@PathVariable String actorname, Model model){
+        Actor actor=actorService.findByName(actorname);
+        model.addAttribute("actor",actor);
+        System.out.println(actor);
         return "actor_details";
     }
 }

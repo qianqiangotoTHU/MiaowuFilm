@@ -11,16 +11,19 @@ import java.util.Date;
 @TableName(value="film")
 public class Film {
     @TableId
-    private int filmId;
+    private int film_id;
     private String filmname;
     private String file_haibao;
+    private String bianju;
     private String director;
     private String type;
     private Date release_time;
     private Time length;
     private String introduce;
-    private String vedeo;
+    private String video;
     private int play_number;
     private Double score;
+    private String region;
+    private int vip;
 //getter and setter
 }

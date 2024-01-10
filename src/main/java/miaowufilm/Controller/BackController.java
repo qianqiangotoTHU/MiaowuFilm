@@ -51,7 +51,7 @@ public class BackController {
             HSSFRow row = sheet.createRow(i + 1);
             Film film = films.get(i);
             HSSFCell cell = null;
-            String[] names = {Math.toIntExact(film.getFilmId()) + "",
+            String[] names = {Math.toIntExact(film.getFilm_id()) + "",
                     film.getFilmname()+ "",
                     film.getPlay_number()+ "",};
             for (int k = 0; k < names.length; k++) {

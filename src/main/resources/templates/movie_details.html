@@ -28,7 +28,7 @@
           <img class="actor-img" th:src="@{'/film/'+${film.file_haibao}}">
         </div>
         <div class="col-9">
-          <div><span class="title">导演</span>
+          <div><span class="title">导演：</span>
             <span class="content" th:text="${film.director}">温子仁</span>
           </div>
 
@@ -36,12 +36,12 @@
             <span class="content" th:text="${film.bianju}"></span>
           </div>
 
-          <div><span class="title">主演：</span>
-            <a href="#">范·迪塞尔</a> /
-            <a href="#">保罗·沃克</a> /
-            <a href="#">杰森·斯坦森</a> /
-            <a href="#">米歇尔·罗德里格兹</a> /
-            <a href="#">乔丹娜·布鲁斯特 </a>
+
+          <div style="display: flex;height: 24px;">
+            <span class="title">主演：</span>
+            <div th:each="actor:${actors}" >
+            <a th:href="'/actorlist/'+${actor.actorname}" th:text="${actor.actorname}" style="color: #00a1d6;text-underline: #00a1d6;">范·迪塞尔</a>&nbsp;&nbsp;&nbsp;
+            </div>
           </div>
 
           <div><span class="title">类型：</span>
@@ -65,7 +65,7 @@
           </div>
 
           <div>
-            <button type="button" class="btn btn-warning">
+            <button type="button" class="btn btn-warning" th:value="${film.video}" onclick="play(this.value)">
               <img th:src="@{/icon/play.svg}" alt="" style="width: 16px; height: 16px;">
               点击播放</button>
 

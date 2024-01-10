@@ -55,52 +55,12 @@
                           <!-- 下面是一个电影块 这里可以写th:each-->
                           <div class="col" th:each="film:${films}">
                               <div class="card" >
-                                  <a th:href="''+${film.filmId}"/>
+                                  <a th:href="'/index/'+${film.film_id}"/>
                                   <img th:src="@{'/film/'+${film.file_haibao}}" class="card-img-top" alt="..."></a>
                                   <div class="card-body" th:text="${film.filmname}">
                                   </div>
                               </div>
                           </div>
-<!--                          <div class="col">-->
-<!--                              <div class="card">-->
-<!--                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">-->
-<!--                                  <div class="card-body">-->
-<!--                                      电影名称-->
-<!--                                  </div>-->
-<!--                              </div>-->
-<!--                          </div>-->
-<!--                          <div class="col">-->
-<!--                              <div class="card">-->
-<!--                                  <img th:src="@{/picture/pic2.jpg}" class="card-img-top" alt="...">-->
-<!--                                  <div class="card-body">-->
-<!--                                      电影名称-->
-<!--                                  </div>-->
-<!--                              </div>-->
-<!--                          </div>-->
-<!--                          <div class="col">-->
-<!--                              <div class="card">-->
-<!--                                  <img th:src="@{/picture/pic3.jpg}" class="card-img-top" alt="...">-->
-<!--                                  <div class="card-body">-->
-<!--                                      电影名称-->
-<!--                                  </div>-->
-<!--                              </div>-->
-<!--                          </div>-->
-<!--                          <div class="col">-->
-<!--                              <div class="card">-->
-<!--                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">-->
-<!--                                  <div class="card-body">-->
-<!--                                      电影名称-->
-<!--                                  </div>-->
-<!--                              </div>-->
-<!--                          </div>-->
-<!--                          <div class="col">-->
-<!--                              <div class="card">-->
-<!--                                  <img th:src="@{/picture/pic4.jpg}" class="card-img-top" alt="...">-->
-<!--                                  <div class="card-body">-->
-<!--                                      电影名称-->
-<!--                                  </div>-->
-<!--                              </div>-->
-<!--                          </div>-->
                       </div>
 
 
@@ -137,16 +97,6 @@
                                       <li class="filter-item">动画</li>
                                   </ul>
                               </div>
-                              <div class="filter-block">
-                                  <div class="filter-name">基因</div>
-                                  <ul class="filter-item-wrapper gene">
-                                      <li class="filter-item on">全部</li>
-                                      <li class="filter-item">xx</li>
-                                      <li class="filter-item">xx</li>
-                                      <li class="filter-item">xx</li>
-                                      <li class="filter-item">xx</li>
-                                  </ul>
-                              </div>
                           </div>
                       </div>
                   </div>
@@ -157,16 +107,18 @@
       <nav aria-label="Page navigation example">
           <ul class="pagination justify-content-center">
               <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
+                  <a class="page-link" aria-label="Previous" th:href="@{/index(region=${region},type=${type},sort=${sort})}">
+                      <span aria-hidden="true">首页</span>
                   </a>
               </li>
-              <li class="page-item"><a class="page-link" href="#">1</a></li>
-              <li class="page-item"><a class="page-link" href="#">2</a></li>
-              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <div th:each="page : ${#numbers.sequence(1,pageCount)}">
+                  <li class="page-item">
+                      <a class="page-link" th:href="@{/index(pageNo=${page},region=${region},type=${type},sort=${sort})}" th:text="${page}">1</a>
+                  </li>
+              </div>
               <li class="page-item">
-                  <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
+                  <a class="page-link" aria-label="Next" th:href="@{/index(pageNo=${pageCount},region=${region},type=${type},sort=${sort})}">
+                      <span aria-hidden="true">尾页</span>
                   </a>
               </li>
           </ul>

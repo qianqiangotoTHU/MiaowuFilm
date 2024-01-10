@@ -1,6 +1,8 @@
 package miaowufilm.service;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import miaowufilm.entity.Actor;
+import miaowufilm.entity.film_actor;
 import miaowufilm.mapper.ActorMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,5 +20,11 @@ public class ActorService extends ServiceImpl<ActorMapper, Actor> {
     }
     public Actor findById(Integer id){
       return actorMapper.selectById(id);
+    }
+
+    public Actor findByName(String actorname) {
+        QueryWrapper<Actor> queryWrapper=new QueryWrapper<>();
+        queryWrapper.eq("actorname",actorname);
+        return actorMapper.selectOne(queryWrapper);
     }
 }

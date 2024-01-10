@@ -25,10 +25,11 @@
 
         <div class="card actor-card" th:each="actor:${actors}">
             <div class="card-body">
+                <a th:href="''+${actor.actor_id}">
                 <div class="row">
                     <div class="col-2">
-                        <a th:href="''+${actor.actorid}"/>
-                        <img class="actor-pic" th:src="@{'/actor/'+${actor.actor_pic}}"></a>
+
+                        <img class="actor-pic" th:src="@{'/actor/'+${actor.actor_pic}}">
                     </div>
                     <div class="col-10">
                         <div class="actorName" th:text="${actor.actorname}"></div>
@@ -41,6 +42,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
 
