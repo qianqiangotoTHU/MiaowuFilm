@@ -10,8 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
     <style>
         .tech{
-            width: auto;
             text-align:center;
+            margin: 80px 0 100px 0;
         }
         .sale{
             width: 450px;
@@ -19,19 +19,24 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-width: 3px;
             text-align:center;
+            margin: auto;
         }
         .sale_cell{
             text-align:center;
             height:60px;
             width: 100px;
         }
+        h2{
+            margin-bottom: 50px;
+        }
+        .main
     </style>
 </head>
 <body>
     <div id="top" th:insert="top_black.html"/>
 
     <!--POI生成并打印报表-->
-    <div class="tech" style="margin-top: 100px">
+    <div class="tech">
         <h2>后台销售榜单</h2>
         <table class="sale" >
             <tr>
@@ -39,16 +44,18 @@
                 <td class="sale_cell">电影名称</td>
                 <td class="sale_cell">电影播放量</td>
                 <td class="sale_cell">
-                    <a href="/ExcelDownload" >下载</a>
+                    <a href="/ExcelDownload" >下载报表</a>
                 </td>
             </tr>
         </table>
     </div>
 
+    <div style="text-align:center;">
     <!--扇形图-->
-    <div id="main" style="width: 600px; height: 400px;"></div>
+    <div id="main" style="width: 600px; height: 400px;margin:auto;"></div>
     <!--柱状图-->
-    <div id="main2" style="height: 40em"></div>
+    <div id="main2" style="height: 40em;"></div>
+    </div>
 </body>
 
 <!--扇形图：播放量/电影名称-->
