@@ -10,10 +10,6 @@ public class pageController {
 //        return "index";
 //    }
 
-    @RequestMapping("/ranking/")
-    public String ranking() {
-        return "ranking";
-    }
 
 //    @RequestMapping("/actorlist/")
 //    public String actorlist() {
