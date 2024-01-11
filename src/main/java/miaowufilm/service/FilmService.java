@@ -3,10 +3,14 @@ package miaowufilm.service;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import miaowufilm.entity.Comment;
 import miaowufilm.entity.Film;
+import miaowufilm.entity.Score;
 import miaowufilm.entity.film_actor;
+import miaowufilm.mapper.CommentMapper;
 import miaowufilm.mapper.FilmActorMapper;
 import miaowufilm.mapper.FilmMapper;
+import miaowufilm.mapper.ScoreMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +24,11 @@ public class FilmService extends ServiceImpl<FilmMapper, Film> {
     private FilmMapper filmMapper;
     @Autowired
     private FilmActorMapper filmActorMapper;
+    @Autowired
+    private ScoreMapper scoreMapper;
+    @Autowired
+    private CommentMapper commentMapper;
+
     public List<Film> findAll(){
         return filmMapper.selectList(null);
     }
@@ -48,5 +57,30 @@ public class FilmService extends ServiceImpl<FilmMapper, Film> {
         QueryWrapper<film_actor> queryWrapper=new QueryWrapper<>();
         queryWrapper.eq("filmname",filmname);
         return filmActorMapper.selectList(queryWrapper);
+    }
+
+    public void addscore(int score, String filmname) {
+        Score score_item = new Score();
+        score_item.setScore(score);
+        score_item.setFilmname(filmname);
+        scoreMapper.insert(score_item);
+    }
+
+    public List<Comment> showComment(String filmname) {
+        QueryWrapper<Comment> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("filmname",filmname);
+        return commentMapper.selectList(queryWrapper);
+    }
+
+    public List<Comment> addComment(String comment, String filmname, String username) {
+        Comment comment_item = new Comment();
+        comment_item.setComment(comment);
+        comment_item.setFilmname(filmname);
+        comment_item.setMname(username);
+        commentMapper.insert(comment_item);
+
+        QueryWrapper<Comment> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("filmname",filmname);
+        return commentMapper.selectList(queryWrapper);
     }
 }

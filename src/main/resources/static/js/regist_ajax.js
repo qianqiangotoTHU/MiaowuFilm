@@ -1,7 +1,9 @@
 $(function(){
+		var mnameInput = document.getElementById("mnameInput");
+		var mname = mnameInput.value;
+
 	$("input[name='email']").blur(function(){
 		var email = $(this).val();
-		
 		if(formObj.checkNull("email","Email不能为空！") && formObj.checkEmail()){
 			$.post("/index/checkemail",{"email":email},function(result){
 				$("#email_msg").text(result);
@@ -9,11 +11,9 @@ $(function(){
 			});
 		}
 	});
-	
 	$("input[name='passw1']").blur(function(){
 		formObj.checkNull("passw1","密码不能为空！");
 		formObj.checkPassword();
-		
 	});
 	
 	$("input[name='passw2']").blur(function(){
@@ -23,6 +23,7 @@ $(function(){
 	
 	$("form").submit(function(){
 		var flag=true;
+		flag=formObj.checkNull("mname","用户名不能为空！") && flag;
 		flag=formObj.checkNull("email","Email不能为空！") && flag;
 		flag=formObj.checkNull("passw1","密码不能为空！") && flag;
 		flag=formObj.checkNull("passw2","确认密码不能为空！") && flag;
@@ -30,9 +31,10 @@ $(function(){
 		flag=formObj.checkPassword() && flag;
 		
 		var email = $("input[name='email']").val();
-		var passw1 = $("input[name='passw1']").val();		
+		var passw1 = $("input[name='passw1']").val();
+		var mname=$("input[name='mname']").val();
 		if(flag){
-			$.post("/index/doRegister",{"email":email,"passw1":passw1},function(result){
+			$.post("/index/doRegister",{"email":email,"passw1":passw1,"mname":mname},function(result){
 				if(result=="注册成功"){
 					alert(result);
 					window.location.href="/index/toLogin";

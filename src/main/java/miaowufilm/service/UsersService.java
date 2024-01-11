@@ -29,9 +29,10 @@ public class UsersService extends ServiceImpl<UsersMapper, Users> {
         }
     }
 
-    public String register(String email, String passw1) {
+    public String register(String email, String passw1,String mname) {
         Users users = usersMapper.selectById(email);
         Users tbusers = new Users();
+        tbusers.setMname(mname);
         tbusers.setEmail(email);
         tbusers.setPassword(md5(passw1));
         if (users!=null){

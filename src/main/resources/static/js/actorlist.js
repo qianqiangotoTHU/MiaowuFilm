@@ -7,6 +7,5 @@ $(function () {
 })
 
 function search(name) {
-    //这是搜索函数
-    console.log(name)
+    window.location.href="/actorlist?search="+name;
 }

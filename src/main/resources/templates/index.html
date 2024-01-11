@@ -57,7 +57,10 @@
                               <div class="card" >
                                   <a th:href="'/index/'+${film.film_id}"/>
                                   <img th:src="@{'/film/'+${film.file_haibao}}" class="card-img-top" alt="..."></a>
-                                  <div class="card-body" th:text="${film.filmname}">
+                                  <div style="display: flex">
+                                      <img src="/icon/VIP.svg" th:if="${film.vip}" style="height: 24px;width: 30px;margin-top: 16px;">
+                                      <div class="card-body" th:text="${film.filmname}">
+                                  </div>
                                   </div>
                               </div>
                           </div>
