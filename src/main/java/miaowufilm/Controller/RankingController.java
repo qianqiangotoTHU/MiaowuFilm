@@ -23,12 +23,12 @@ public class RankingController {
     public String ranklist(@RequestParam(name = "pageNo",defaultValue = "1")Integer pageNo,
                            @RequestParam(name = "sort",defaultValue = "1")Integer sort,
                            Model model){
-        Map<String,Object> map = rankingService.getFilmRankingsByPlayNumber(pageNo,pageSize,sort);
+        Map<String,Object> map = rankingService.getFilmRankingsByPlayNumber(sort);
 
-        Integer count = (Integer)map.get("count");
-        int pageCount = (count%pageSize==0)?(count/pageSize):(count/pageSize+1);
+
+
         List<Film> filmList = (List<Film>) map.get("filmList");
-        model.addAttribute("pageCount",pageCount);
+
         model.addAttribute("currentPage",pageNo);
         model.addAttribute("films",filmList);
         model.addAttribute("sort",sort);

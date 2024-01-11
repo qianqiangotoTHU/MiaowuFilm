@@ -1,5 +1,6 @@
 package miaowufilm.Controller;
 
+import jakarta.servlet.http.HttpSession;
 import miaowufilm.entity.Actor;
 import miaowufilm.entity.Comment;
 import miaowufilm.entity.Film;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 //import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller

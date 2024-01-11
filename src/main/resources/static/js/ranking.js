@@ -18,7 +18,10 @@ $(function () {
     if (sortitem==="") sortitem="全部排行";
 
     var sortbanner = document.querySelector('.sort-banner')
-
+    for (let i of sortbanner.children) {
+        if(i.textContent==sortitem) i.classList.add("on");
+        else i.classList.remove("on");
+    }
     sortbanner.addEventListener("click", function (event) {
         for (let i of sortbanner.children) {
             i.classList.remove("on");

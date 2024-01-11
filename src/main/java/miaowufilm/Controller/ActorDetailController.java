@@ -24,7 +24,7 @@ public class ActorDetailController {
 //        return "actor_details";
 //    }
 
-    @GetMapping("/actor/{actorname}")
+    @GetMapping("/actordetail/{actorname}")
     public String GetActorByName(@PathVariable String actorname, Model model){
         Actor actor=actorService.findByName(actorname);
         model.addAttribute("actor",actor);

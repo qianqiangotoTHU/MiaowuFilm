@@ -50,7 +50,7 @@
           <div class="row row-cols-1 row-cols-md-5 g-4">
             <div class="col" th:each="film:${filmList}">
               <div class="card movie-card" >
-                <a th:href="'/index/'+${film.film_id}">
+                <a th:href="'/index/'+${film?.film_id}">
                 <img th:src="@{'/film/'+${film?.file_haibao}}" alt="" class="card-img-top">
                 <div class="card-body" th:text="${film?.filmname}">电影名称</div></a>
               </div>

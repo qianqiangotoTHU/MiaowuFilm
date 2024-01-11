@@ -38,7 +38,7 @@
           <div style="display: flex;height: 24px;">
             <span class="title">主演：</span>
             <div th:each="actor:${actors}" >
-            <a th:href="'/actor/'+${actor.actorname}" th:text="${actor.actorname}" style="color: #00a1d6;text-underline: #00a1d6;">范·迪塞尔</a>&nbsp;&nbsp;&nbsp;
+            <a th:href="'/actordetail/'+${actor.actorname}" th:text="${actor.actorname}" style="color: #00a1d6;text-underline: #00a1d6;">范·迪塞尔</a>&nbsp;&nbsp;&nbsp;
             </div>
           </div>
 

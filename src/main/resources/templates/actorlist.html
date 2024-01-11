@@ -25,19 +25,19 @@
 
         <div class="card actor-card" th:each="actor:${actors}">
             <div class="card-body">
-                <a th:href="'/actor/'+${actor?.actorname}">
+                <a th:href="'/actordetail/'+${actor?.actorname}">
                 <div class="row">
                     <div class="col-2">
 
-                        <img class="actor-pic" th:src="@{'/actor/'+${actor?.actor_pic}}">
+                        <img class="actor-pic" th:src="@{'/actor/'+${actor.actor_pic}}">
                     </div>
                     <div class="col-10">
-                        <div class="actorName" th:text="${actor?.actorname}"></div>
-                        <div class="EnglishName"th:text="${actor?.actorname_english}"></div>
+                        <div class="actorName" th:text="${actor.actorname}"></div>
+                        <div class="EnglishName"th:text="${actor.actorname_english}"></div>
                         <div class="actorprofile">
                             <div class="profile">简介</div>
 
-                            <div class="profile-text"th:text="${actor?.introduce}">
+                            <div class="profile-text"th:text="${actor.introduce}">
                                </div>
                         </div>
                     </div>
